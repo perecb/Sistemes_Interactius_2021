@@ -7,11 +7,15 @@ using TMPro;
 public class PlayerController : MonoBehaviour
 {
     public float speed = 0;
-    public TextMeshProUGUI countText;
-    public GameObject winTextObject;
+    public TextMeshProUGUI countTextGreen;
+    public TextMeshProUGUI countTextRed;
+    public GameObject redWinTextObject;
+    public GameObject greenWinTextObject;
+    public Light lt;
 
     private Rigidbody rb;
-    private int count;
+    private int countGreen;
+    private int countRed;
     private float movementX;
     private float movementY;
 
@@ -19,10 +23,13 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        count = 0;
+        countGreen = 0;
+        countRed = 0;
 
-        winTextObject.SetActive(false);
-        SetCountText();
+        greenWinTextObject.SetActive(false);
+        redWinTextObject.SetActive(false);
+        SetCountTextGreen();
+        SetCountTextRed();
     }
 
     void OnMove( InputValue movementValue)
@@ -32,12 +39,23 @@ public class PlayerController : MonoBehaviour
         movementY = movementVector.y;
     }
 
-    void SetCountText()
+    void SetCountTextGreen()
     {
-        countText.text = "Count: " + count.ToString();
-        if (count >= 8)
+        countTextGreen.text = "Count: " + countGreen.ToString();
+        if (countGreen >= 8 && countRed != 8)
         {
-            winTextObject.SetActive(true);
+            greenWinTextObject.SetActive(true);
+            lt.color = Color.green;
+        }
+    }
+
+    void SetCountTextRed()
+    {
+        countTextRed.text = "Count: " + countRed.ToString();
+        if (countRed >= 8 && countGreen != 8)
+        {
+            redWinTextObject.SetActive(true);
+            lt.color = Color.red;
         }
     }
 
@@ -49,12 +67,19 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("PickUp"))
+        if (other.gameObject.CompareTag("PickUpGreen"))
         {
             other.gameObject.SetActive(false);
-            count = count + 1;
+            countGreen = countGreen + 1;
 
-            SetCountText();
+            SetCountTextGreen();
+        }
+        if (other.gameObject.CompareTag("PickUpRed"))
+        {
+            other.gameObject.SetActive(false);
+            countRed = countRed + 1;
+
+            SetCountTextRed();
         }
     }
 }
