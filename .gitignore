@@ -59,7 +59,7 @@ sysinfo.txt
 crashlytics-build.properties
 
 *Library*
-*Temp*
+*Temp/*
 *obj*
 *Logs*
 *UserSettings*
