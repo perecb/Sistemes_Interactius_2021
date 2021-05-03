@@ -8,6 +8,7 @@ public class HayMachineControl : MonoBehaviour
     public float moveAmount = 1;
 
     public GameObject hayShootObject;
+    public Transform haySpawnpoint;
     public float thresholdShoot = 0.5f;
     float measureTime = 0;
 
@@ -28,8 +29,7 @@ public class HayMachineControl : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space) && (Time.time - measureTime) > thresholdShoot)
         {
-            GameObject go = Instantiate(hayShootObject, transform.position, Quaternion.identity);
-            go.transform.parent = transform;
+            Instantiate(hayShootObject, haySpawnpoint.position, Quaternion.identity);
             measureTime = Time.time;
         }
     }

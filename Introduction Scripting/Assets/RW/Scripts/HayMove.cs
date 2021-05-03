@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class HayMove : MonoBehaviour
 {
-    public float speed;
+    public Vector3 speed;
+    public Space space;
 
     // Start is called before the first frame update
     void Start()
@@ -15,6 +16,6 @@ public class HayMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * speed, Space.World);
+        transform.Translate(speed * Time.deltaTime, space);
     }
 }
