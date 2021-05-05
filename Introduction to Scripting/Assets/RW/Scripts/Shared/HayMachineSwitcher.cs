@@ -12,14 +12,14 @@ public class HayMachineSwitcher : MonoBehaviour, IPointerClickHandler
 
     private int selectedIndex;
 
-    public void OnPointerClick(PointerEventData eventData) // 1
+    public void OnPointerClick(PointerEventData eventData) 
     {
-        selectedIndex++; // 2
-        selectedIndex %= Enum.GetValues(typeof(HayMachineColor)).Length; // 3
+        selectedIndex++; 
+        selectedIndex %= Enum.GetValues(typeof(HayMachineColor)).Length; 
 
-        GameSettings.hayMachineColor = (HayMachineColor)selectedIndex; // 4
+        GameSettings.hayMachineColor = (HayMachineColor)selectedIndex; 
 
-        // 5
+        
         switch (GameSettings.hayMachineColor)
         {
             case HayMachineColor.Blue:

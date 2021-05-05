@@ -13,6 +13,12 @@ public class GameStateManager : MonoBehaviour
     [HideInInspector]
     public int sheepDropped;
 
+    [HideInInspector]
+    public int sheepSpeedIncrease;
+
+    [HideInInspector]
+    public int sheepNumberSpawnPoints;
+
     public int sheepDroppedBeforeGameOver;
     public SheepSpawner sheepSpawner;
 
@@ -20,7 +26,7 @@ public class GameStateManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
-
+        sheepNumberSpawnPoints = 2;
     }
 
     // Update is called once per frame
@@ -36,12 +42,24 @@ public class GameStateManager : MonoBehaviour
     {
         sheepSaved++;
         UIManager.Instance.UpdateSheepSaved();
+
+        if (sheepSaved % 5 == 0)
+        {
+            sheepSpeedIncrease++;
+
+            if (sheepSaved % 10 == 0 && sheepNumberSpawnPoints < 5)
+                sheepNumberSpawnPoints++;
+        }
     }
 
     private void GameOver()
     {
         sheepSpawner.canSpawn = false; 
         sheepSpawner.DestroyAllSheep();
+
+        if (SaveBestScore.bestScore < sheepSaved)
+            SaveBestScore.bestScore = sheepSaved;
+
         UIManager.Instance.ShowGameOverWindow();
     }
 

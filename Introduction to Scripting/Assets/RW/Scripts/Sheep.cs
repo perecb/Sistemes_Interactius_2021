@@ -28,7 +28,7 @@ public class Sheep : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        transform.Translate(Vector3.forward * runSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * (runSpeed + GameStateManager.Instance.sheepSpeedIncrease) * Time.deltaTime);
     }
 
     private void HitByHay()

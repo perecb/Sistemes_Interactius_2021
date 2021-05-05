@@ -605,7 +605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2059443d446e86458e0d8695afced79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 14
+  movementSpeed: 25
   horizontalBoundary: 22
   hayBalePrefab: {fileID: 7687986028169451772, guid: f0e9f927f83903a47aeed08adeb0e434,
     type: 3}
@@ -902,8 +902,40 @@ Transform:
   - {fileID: 325344199}
   - {fileID: 597921544}
   - {fileID: 197942303}
+  - {fileID: 1342649276}
+  - {fileID: 1874017552}
   m_Father: {fileID: 0}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1342649275
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1342649276}
+  m_Layer: 0
+  m_Name: Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1342649276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342649275}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -8, y: 0, z: 60}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1300230348}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1508344888
 GameObject:
@@ -1083,9 +1115,11 @@ MonoBehaviour:
   sheepPrefab: {fileID: 5127157496951279302, guid: 01474fdf485085445984bb5b25d42717,
     type: 3}
   sheepSpawnPositions:
-  - {fileID: 325344199}
+  - {fileID: 1874017552}
+  - {fileID: 1342649276}
   - {fileID: 597921544}
   - {fileID: 197942303}
+  - {fileID: 325344199}
   timeBetweenSpawns: 2
 --- !u!4 &1809176696
 Transform:
@@ -1100,6 +1134,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1874017551
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1874017552}
+  m_Layer: 0
+  m_Name: Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1874017552
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1874017551}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8, y: 0, z: 60}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1300230348}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2117102181
 GameObject:
@@ -1146,6 +1210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sheepSaved: 0
   sheepDropped: 0
+  sheepSpeedIncrease: 0
+  sheepNumberSpawnPoints: 0
   sheepDroppedBeforeGameOver: 3
   sheepSpawner: {fileID: 1809176695}
 --- !u!1001 &1524613846732587527

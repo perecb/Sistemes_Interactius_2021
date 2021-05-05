@@ -25,7 +25,7 @@ public class SheepSpawner : MonoBehaviour
     }
     private void SpawnSheep()
     {
-        Vector3 randomPosition = sheepSpawnPositions[Random.Range(0, sheepSpawnPositions.Count)].position;
+        Vector3 randomPosition = sheepSpawnPositions[Random.Range(0, GameStateManager.Instance.sheepNumberSpawnPoints)].position;
         GameObject sheep = Instantiate(sheepPrefab, randomPosition, sheepPrefab.transform.rotation);
         sheepList.Add(sheep); 
         sheep.GetComponent<Sheep>().SetSpawner(this); 
